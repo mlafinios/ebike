@@ -10,7 +10,7 @@ difference() {
 
 translate([0,49,-10])
 rotate([90,0,0])
-cylinder($fn = 100, 50,14.3,14.3);
+cylinder($fn = 100, 50,14.4,14.4);
 
 translate([-8,49,7])
 rotate([90,0,0])
