@@ -1,9 +1,10 @@
 use <dotscad/pie.scad>
+use <threads.scad>
 
 module ring(in, out, h) {
   difference() {
-    cylinder($fn=100, h, out, out);
-    translate([0,0,-1]) cylinder($fn=100, h+2, in, in);
+    cylinder(h, out, out);
+    translate([0,0,-1]) cylinder(h+2, in, in);
   }
 }
 
@@ -15,7 +16,7 @@ module ringcut(in, out, h, angle, spin) {
 }
 
 module locker(r1, r2, t, h) {
-  translate([0,0,-1]) {
+  translate([0,0,0]) {
   ringcut(r1, r1+t, h, 270, 180);
   translate([0,r1,0])
     cube([5,t,h]);
@@ -25,23 +26,7 @@ module locker(r1, r2, t, h) {
 }
 
 difference() {
-translate([0,-22.4,0])
-cube([69.6,44.8,40]);
-
-translate([17,-20.3,2])
-cube([50,40.4,40]);
-
-translate([0,0,-1])
-cylinder($fn=100, 42,14.5,14.5);
-
-translate([17,-12,-1])
-cube([5,24,6]);
-
-locker(14.5, 4, 2.2, 21);
-mirror([0,1,0])
-locker(14.5, 4, 2.2, 21);
-cube([10,30,40], center=true);
+  cylinder(10, 22, 22);
+  translate([0,0,-1])
+  metric_thread(42,2,10,internal=true);
 }
-
-
-
