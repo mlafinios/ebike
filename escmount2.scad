@@ -5,17 +5,16 @@ w = 36;
 h = 30;
 t = 1;
 
-sr = 2.5;
-br = 3;
+br = 3;  // CHANGE thIS
 
 difference() {
 	escmount(w, t, h);
-	translate([-23.5,-w/3,-1])
+	translate([-30.5,-14,-1])
 	cylinder($fn=100,3,br,br);
-	translate([-23.5,w/3,-1])
+	translate([-30.5,14,-1])
 	cylinder($fn=100,3,br,br);
-	translate([-33.5,-w/3,-1])
+	translate([-41.5,-14,-1])
 	cylinder($fn=100,3,br,br);
-	translate([-33.5,w/3,-1])
+	translate([-41.5,14,-1])
 	cylinder($fn=100,3,br,br);
 }
