@@ -1,11 +1,10 @@
-use <roundCornersCube.scad>
 use <escmount.scad>
 
 w = 36;
 h = 30;
 t = 1;
 
-br = 3;  // CHANGE thIS
+br = 3;
 
 difference() {
 	escmount(w, t, h);

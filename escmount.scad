@@ -1,7 +1,3 @@
-// CHECK RADIUS of every hole
-// Check distance between holes
-// Check thickness of ESC and width
-
 use <roundCornersCube.scad>
 
 module escmount(w, t, h) {
@@ -35,7 +31,7 @@ w = 37;
 h = 20;
 t = 1;
 
-sr = 2.5; // CHANGE thIS
+sr = 2.5;
 ur = 3;
 
 difference() {
