@@ -13,4 +13,4 @@ cylinder($fn = 100, 7, 2.2, 2.2);
 for(i = [-3.5 : 7 : 3.5])
 for(j = [-3.5 : 7 : 3.5])
 translate([i,j,5])
-cube([2, 2, 1], center=true);
+cube([1, 1, 2], center=true);
