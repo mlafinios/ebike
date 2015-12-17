@@ -1,6 +1,11 @@
 
 // frame radius
-r = 15;
+fr = 16;
+
+// battery width and depth and heig
+batx = 51;
+baty = 43;
+batz = 30;
 
 // wire radius
 wr = 4;
@@ -19,7 +24,7 @@ cube([50,40.4,40]);
 
 // frame
 translate([0,0,-1])
-cylinder($fn=100,82,r,r);
+cylinder($fn=100,82,fr,fr);
 
 // wire1
 translate([16,-16,30])
