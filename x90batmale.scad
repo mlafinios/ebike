@@ -5,54 +5,42 @@ module ccube(x, y, z) {
     cube([x, y, z]);
 }
 
-// holder thickness
-thi = 4;
+module batmale() {
+	difference() {
 
-// hole radius
-hr = 1.2;
+		union() {
+		  // baseplate
+		  ccube(x90plate_w, x90plate_d, th);
+		  // enclosure
+		  ccube(x90male_w+th*2, x90male_d+th*2, x90male_h+th);
+		}
 
-// push bolt radius
-pbr = 1.4;
+		// x90male
+		translate([0,0,th])
+		ccube(x90male_w,x90male_d,x90male_d+1);
 
-// baseplate
-baseplatex = x90male_w+thi*2+hr*8;
-baseplatey = x90male_d+thi*2;
+		// holes for bolts
+		translate([x90plate_w/2-hr*2,x90plate_d/2-hr*2,-1])
+		cylinder($fn=100,th+2,hr,hr);
+		translate([-x90plate_w/2+hr*2,x90plate_d/2-hr*2,-1])
+		cylinder($fn=100,th+2,hr,hr);
+		translate([x90plate_w/2-hr*2,-x90plate_d/2+hr*2,-1])
+		cylinder($fn=100,th+2,hr,hr);
+		translate([-x90plate_w/2+hr*2,-x90plate_d/2+hr*2,-1])
+		cylinder($fn=100,th+2,hr,hr);
 
-// dist betw wires
-dbw = 11;
+		// holes for wires
+		translate([0,-dbw/2,-1])
+		cylinder($fn=100,th+2,x90male_r,x90male_r);
+		translate([0,dbw/2,-1])
+		cylinder($fn=100,th+2,x90male_r,x90male_r);
 
-difference() {
-
-union() {
-  // baseplate
-  ccube(baseplatex, baseplatey, thi);
-  // enclosure
-  ccube(x90male_w+thi*2, x90male_d+thi*2, x90male_h+thi);
+		// holes for bolt that push
+		rotate([0,90,0]) {
+		translate([-th-4,0,-20])
+		cylinder($fn=100,20,pbr,pbr);
+		}
+	}
 }
 
-// x90male
-translate([0,0,thi])
-ccube(x90male_w,x90male_d,x90male_d+1);
-
-// holes for bolts
-translate([baseplatex/2-hr*2,baseplatey/2-hr*2,-1])
-cylinder($fn=100,thi+2,hr,hr);
-translate([-baseplatex/2+hr*2,baseplatey/2-hr*2,-1])
-cylinder($fn=100,thi+2,hr,hr);
-translate([baseplatex/2-hr*2,-baseplatey/2+hr*2,-1])
-cylinder($fn=100,thi+2,hr,hr);
-translate([-baseplatex/2+hr*2,-baseplatey/2+hr*2,-1])
-cylinder($fn=100,thi+2,hr,hr);
-
-// holes for wires
-translate([0,-dbw/2,-1])
-cylinder($fn=100,thi+2,x90male_r,x90male_r);
-translate([0,dbw/2,-1])
-cylinder($fn=100,thi+2,x90male_r,x90male_r);
-
-// holes for bolt that push
-rotate([0,90,0]) {
-translate([-thi-4,0,-20])
-cylinder($fn=100,20,pbr,pbr);
-}
-}
+batmale();

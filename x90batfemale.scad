@@ -1,5 +1,7 @@
 include <roundCornersCube.scad>
 include <x90.scad>
+include <frame.scad>
+use <x90batmale.scad>
 
 module cable_tie_hole(a, b, c) {
   difference() {
@@ -8,33 +10,29 @@ module cable_tie_hole(a, b, c) {
   }
 }
 
-r1 = 14.5;
-r2 = 16;
-x90female_r = 4;
-
 difference() {
 translate([5,-20,10])
-cube([45,40,47]);
+cube([40,40,47]);
 
 scale([1,1.125,1]) {
-cylinder($fn=100, 100,r2,r2);
+cylinder($fn=100, 100,fr1,fr1);
 
 translate([0,0,46])
-cable_tie_hole(40, 31.8, r2);
+cable_tie_hole(40, 31.8, fr1);
 }
 
 rotate([0,59.7,0]) {
-  cylinder($fn=100, 100,r1,r1);
+  cylinder($fn=100, 100,fr2,fr2);
 
   translate([0,-30,10])
   cube([60,60,80]);
 
   translate([0,0,40])
-  cable_tie_hole(40, 29, r1);
+  cable_tie_hole(40, 29, fr2);
 
-  translate([-14,-6,51])
+  translate([-14,-dbw/2,45])
   cylinder($fn=100, 30,x90female_r,x90female_r);
-  translate([-14,6,51])
+  translate([-14,dbw/2,45])
   cylinder($fn=100, 30,x90female_r,x90female_r);
 }
 
@@ -44,23 +42,14 @@ rotate([0,90,0]) {
   cylinder($fn=100,10,pbr,pbr);
 }
 
-th = 4;
-
-// hole radius
-hr = 1.2;
-
-// baseplate
-baseplatex = x90female_w+th*2+hr*8;
-baseplatey = x90female_d+th*2;
-
 // Hole for battery insert
-translate([r2+hr*6+baseplatex/2-x90female_w/2,-x90female_d/2,48])
+translate([fr1+hr*2+x90plate_w/2-x90female_w/2,-x90female_d/2,48])
 cube([x90female_w,x90female_d,x90female_h+1]);
 
 // Holes from battery insert to frame
-translate([r2+hr*6+baseplatex/2,-6,0])
+translate([fr1+hr*2+x90plate_w/2,-dbw/2,0])
 cylinder($fn=100, 100,x90female_r,x90female_r);
-translate([r2+hr*6+baseplatex/2,6,0])
+translate([fr1+hr*2+x90plate_w/2,dbw/2,0])
 cylinder($fn=100, 100,x90female_r,x90female_r);
 
 // Bottom bracket
@@ -73,3 +62,7 @@ cube([80,80,17]);
 
 }
 
+
+
+//translate([fr1+x90plate_w/2+hr*2, 0, 100])
+//batmale();

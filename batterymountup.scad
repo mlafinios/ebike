@@ -1,7 +1,5 @@
 use <dotscad/pie.scad>
-
-// frame radius
-fr = 16;
+include <fr1ame.scad>
 
 // battery width and depth and heig
 batx = 50.5;
@@ -37,17 +35,17 @@ module locker(r1, r2, t, h) {
 
 difference() {
 translate([0,-baty/2-thi,0])
-cube([batx+thi*2+fr,baty+thi*2,batz+thi]);
+cube([batx+thi*2+fr1,baty+thi*2,batz+thi]);
 
-translate([fr+thi,-baty/2,thi])
+translate([fr1+thi,-baty/2,thi])
 cube([batx,baty,batz+1]);
 
 translate([0,0,-1])
-cylinder($fn=100,batz+thi+2,fr,fr);
+cylinder($fn=100,batz+thi+2,fr1,fr1);
 
-locker(fr, 4, 2.2, 21);
+locker(fr1, 4, 2.2, 21);
 mirror([0,1,0])
-locker(fr, 4, 2.2, 21);
+locker(fr1, 4, 2.2, 21);
 cube([10,36,40], center=true);
 }
 

@@ -1,6 +1,7 @@
+include <fr1ame.scad>
 
-// frame radius
-fr = 16;
+// fr1ame radius
+fr1 = 16;
 
 // battery width and depth and heig
 batx = 51;
@@ -22,9 +23,9 @@ cube([50,40.4,40]);
 translate([17,-20.3,41])
 cube([50,40.4,40]);
 
-// frame
+// fr1ame
 translate([0,0,-1])
-cylinder($fn=100,82,fr,fr);
+cylinder($fn=100,82,fr1,fr1);
 
 // wire1
 translate([16,-16,30])
