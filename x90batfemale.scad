@@ -31,9 +31,9 @@ rotate([0,59.7,0]) {
   cable_tie_hole(40, 29, fr2);
 
   translate([-14,-dbw/2,45])
-  cylinder($fn=100, 30,x90female_r,x90female_r);
+  cylinder($fn=100, 30,wr,wr);
   translate([-14,dbw/2,45])
-  cylinder($fn=100, 30,x90female_r,x90female_r);
+  cylinder($fn=100, 30,wr,wr);
 }
 
 // bolt holder
@@ -48,9 +48,9 @@ cube([x90female_w,x90female_d,x90female_h+1]);
 
 // Holes from battery insert to frame
 translate([fr1+hr*2+x90plate_w/2,-dbw/2,0])
-cylinder($fn=100, 100,x90female_r,x90female_r);
+cylinder($fn=100, 100,wr,wr);
 translate([fr1+hr*2+x90plate_w/2,dbw/2,0])
-cylinder($fn=100, 100,x90female_r,x90female_r);
+cylinder($fn=100, 100,wr,wr);
 
 // Bottom bracket
 translate([0,25,15])

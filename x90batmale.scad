@@ -31,9 +31,9 @@ module batmale() {
 
 		// holes for wires
 		translate([0,-dbw/2,-1])
-		cylinder($fn=100,th+2,x90male_r,x90male_r);
+		cylinder($fn=100,th+2,wr,wr);
 		translate([0,dbw/2,-1])
-		cylinder($fn=100,th+2,x90male_r,x90male_r);
+		cylinder($fn=100,th+2,wr,wr);
 
 		// holes for bolt that push
 		rotate([0,90,0]) {

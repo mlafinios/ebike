@@ -1,37 +1,29 @@
 include <frame.scad>
 include <x90.scad>
 use <x90batmale.scad>
+include <battery.scad>
 
 module batmountlow() {
-	// wire radius
-	wr = 4;
-
-	// battery width and depth and heig
-	batx = 51;
-	baty = 42;
 	batz = 60;
 
-	// thickness
-	thi = 2;
-
 	difference() {
-	translate([0,-baty/2-thi,0])
-	cube([batx+thi*2+fr1,baty+thi*2,batz+thi]);
+	translate([0,-bat_d/2-thi,0])
+	cube([bat_w+thi*2+fr1,bat_d+thi*2,batz+thi]);
 
 	// battery
-	translate([fr1+thi,-baty/2,thi])
-	cube([batx,baty,batz+1]);
+	translate([fr1+thi,-bat_d/2,thi])
+	cube([bat_w,bat_d,batz+1]);
 
 	// frame
 	translate([0,0,-1])
 	cylinder($fn=100,batz+thi+2,fr1,fr1);
 
 	// wire1
-	translate([fr1+thi/2,-baty/2+wr+thi,thi])
+	translate([fr1+thi/2,-bat_d/2+wr+thi,thi])
 	cylinder($fn=100,100,wr,wr);
 
 	// wire2
-	translate([fr1+thi/2,baty/2-wr-thi,thi])
+	translate([fr1+thi/2,bat_d/2-wr-thi,thi])
 	cylinder($fn=100,100,wr,wr);
 
 	// holes for bolts

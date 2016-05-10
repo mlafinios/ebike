@@ -1,13 +1,8 @@
 use <dotscad/pie.scad>
-include <fr1ame.scad>
+include <frame.scad>
+include <battery.scad>
 
-// battery width and depth and heig
-batx = 50.5;
-baty = 44;
 batz = 40;
-
-// thickness
-thi = 2;
 
 module ring(in, out, h) {
   difference() {
@@ -34,11 +29,11 @@ module locker(r1, r2, t, h) {
 }
 
 difference() {
-translate([0,-baty/2-thi,0])
-cube([batx+thi*2+fr1,baty+thi*2,batz+thi]);
+translate([0,-bat_d/2-thi,0])
+cube([bat_w+thi*2+fr1,bat_d+thi*2,batz+thi]);
 
-translate([fr1+thi,-baty/2,thi])
-cube([batx,baty,batz+1]);
+translate([fr1+thi,-bat_d/2,thi])
+cube([bat_w,bat_d,batz+1]);
 
 translate([0,0,-1])
 cylinder($fn=100,batz+thi+2,fr1,fr1);

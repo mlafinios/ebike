@@ -1,4 +1,5 @@
 use <dotscad/pie.scad>
+include <frame.scad>
 
 module ring(in, out, h) {
   difference() {
@@ -24,6 +25,6 @@ module locker(r1, r2, t, h) {
   }
 }
 
-locker(16, 4, 2, 20);
+locker(fr1, 4, 2, 20);
 mirror([0,1,0])
-locker(16, 4, 2, 20);
+locker(fr1, 4, 2, 20);
