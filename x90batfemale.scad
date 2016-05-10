@@ -14,15 +14,12 @@ x90female_r = 4;
 
 difference() {
 translate([5,-20,10])
-cube([45,40,60]);
+cube([45,40,47]);
 
 scale([1,1.125,1]) {
 cylinder($fn=100, 100,r2,r2);
 
-translate([0,0,60])
-cable_tie_hole(40, 31.8, r2);
-
-translate([0,0,44])
+translate([0,0,46])
 cable_tie_hole(40, 31.8, r2);
 }
 
@@ -43,10 +40,9 @@ rotate([0,59.7,0]) {
 
 // bolt holder
 rotate([0,90,0]) {
-  translate([-65,0,42])
+  translate([-52,0,42])
   cylinder($fn=100,10,pbr,pbr);
 }
-
 
 th = 4;
 
@@ -58,7 +54,7 @@ baseplatex = x90female_w+th*2+hr*8;
 baseplatey = x90female_d+th*2;
 
 // Hole for battery insert
-translate([r2+hr*6+baseplatex/2-x90female_w/2,-x90female_d/2,61])
+translate([r2+hr*6+baseplatex/2-x90female_w/2,-x90female_d/2,48])
 cube([x90female_w,x90female_d,x90female_h+1]);
 
 // Holes from battery insert to frame
@@ -70,7 +66,7 @@ cylinder($fn=100, 100,x90female_r,x90female_r);
 // Bottom bracket
 translate([0,25,15])
 rotate([90,0,0])
-cylinder($fn=100, 50,21,21);
+cylinder($fn=100,50,21,21);
 
 translate([-40,-40,0])
 cube([80,80,17]);
