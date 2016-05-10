@@ -1,5 +1,5 @@
-include <threads.scad>
-include <roundCornersCube.scad>
+include <../threads.scad>
+include <../roundCornersCube.scad>
 
 difference() {
   union() {

@@ -1,4 +1,4 @@
-include <roundCornersCube.scad>
+include <../roundCornersCube.scad>
 
 difference() {
   cylinder($fn = 100, 16,6,6);

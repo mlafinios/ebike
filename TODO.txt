@@ -1,4 +1,3 @@
-clean up old files
 lipo case
 0.96 display
 
