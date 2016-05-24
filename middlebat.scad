@@ -4,6 +4,9 @@ include <battery.scad>
 
 batz = 35;
 
+translate([0,-bat_d/2-thi,0])
+cube([bat_w+thi*2+fr1,bat_d+thi*2,0.3]);
+
 difference() {
 translate([0,-bat_d/2-thi,0])
 cube([bat_w+thi*2+fr1,bat_d+thi*2,batz+thi]);

@@ -1,20 +1,13 @@
-include <roundCornersCube.scad>
+use <cabletiehole.scad>
 include <x90.scad>
 include <frame.scad>
 use <x90batmale.scad>
-
-module cable_tie_hole(a, b, c) {
-  difference() {
-    roundCornersCube(a+4,b+4,4,c+2);
-    roundCornersCube(a,b,4,c);
-  }
-}
 
 difference() {
 translate([5,-20,10])
 cube([40,40,47]);
 
-scale([1,1.125,1]) {
+scale([1,1.12,1]) {
 cylinder($fn=100, 100,fr1,fr1);
 
 translate([0,0,46])
@@ -38,8 +31,8 @@ rotate([0,59.7,0]) {
 
 // bolt holder
 rotate([0,90,0]) {
-  translate([-52,0,42])
-  cylinder($fn=100,10,pbr,pbr);
+  translate([-52,0,32])
+  cylinder($fn=100,40,pbr,pbr);
 }
 
 // Hole for battery insert
