@@ -1,25 +1,31 @@
 use <ring.scad>
 include <frame.scad>
 
-capr = 9.2;
-hei = 40;
-wr = 3;
-thi = 1;
+capr = 9.4;
+hei = 42;
+thi = 0.8;
 
-module capcyl() {
-  ring(capr, capr+thi, hei);
+smwr = 1;
+
+module capholder() {
+difference() {
+  cylinder($fn=100,hei,capr+thi,capr+thi);
+  translate([0,0,thi])
+  cylinder($fn=100,hei,capr,capr);
+
+  translate([0,0,hei-3]) {
+	rotate([0,90,0])
+	cylinder($fn=100,hei,smwr,smwr);
+
+	rotate([0,90,20])
+	cylinder($fn=100,hei,smwr,smwr);
+  }
+}
 }
 
-module wirecyl() {
-  ring(wr, wr+thi, hei);
+module capcap() {
+  cylinder($fn=100,1.2,capr+thi,capr+thi);
+  cylinder($fn=100,3.7,capr,capr);
 }
 
-translate([0,-3-capr,0])
-capcyl();
-translate([-2-wr,0,0])
-wirecyl();
-
-translate([0,3+capr,0])
-capcyl();
-translate([2+wr,0,0])
-wirecyl();
+capcap();
