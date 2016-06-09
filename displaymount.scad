@@ -1,4 +1,5 @@
 include <frame.scad>
+use <roundCornersCube.scad>
 
 br = 5.5;
 bw = 14;
@@ -10,7 +11,7 @@ thi = 1.6;
 difference() {
 difference() {
   translate([-bl/2-thi,-thi,0])
-    cube([bl+thi*2,bw+thi*2,bh+thi]);
+    rrc(bl+thi*2,bw+thi*2,bh+thi,2);
   translate([-bl/2,0,0])
     cube([bl,bw,bh]);
   translate([0,bw/2,0])

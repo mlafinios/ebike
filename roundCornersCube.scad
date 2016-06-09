@@ -28,7 +28,7 @@ difference(){        //This shape is basicly the difference between a quarter of
       cube([radius+0.2,radius+0.1,h+0.2],center=true);         // All that 0.x numbers are to avoid "ghost boundaries" when substracting
    }
 
-   cylinder(h=h+0.2,r=radius,$fn = 25,center=true);
+   cylinder(h=h+0.2,r=radius,$fn = 100,center=true);
 }
 
 
