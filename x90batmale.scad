@@ -1,8 +1,14 @@
 include <x90.scad>
+use <roundCornersCube.scad>
 
 module ccube(x, y, z) {
   translate([-x/2, -y/2, 0])
     cube([x, y, z]);
+}
+
+module rccube(x, y, z) {
+  translate([-x/2, -y/2, 0])
+    rrc(x, y, z, 2);
 }
 
 module batmale() {
@@ -10,14 +16,14 @@ module batmale() {
 
     union() {
       // baseplate
-      ccube(x90plate_w, x90plate_d, th);
+      rccube(x90plate_w, x90plate_d, th);
       // enclosure
-      ccube(x90male_w+th*2, x90male_d+th*2, x90male_h+th);
+      rccube(x90male_w+th*2, x90male_d+th*2, x90male_h+th);
     }
 
     // x90male
     translate([0,0,th])
-    ccube(x90male_w,x90male_d,x90male_d+1);
+    ccube(x90male_w+0.4,x90male_d+0.4,x90male_d+1);
 
     // holes for bolts
     translate([x90plate_w/2-hr*2,x90plate_d/2-hr*2,-1])
@@ -37,8 +43,10 @@ module batmale() {
 
     // holes for bolt that push
     rotate([0,90,0]) {
-    translate([-th-4,0,-20])
-    cylinder($fn=100,20,pbr,pbr);
+    translate([-th-4,6,-20])
+    cylinder($fn=100,220,pbr,pbr);
+    translate([-th-4,-6,-20])
+    cylinder($fn=100,220,pbr,pbr);
     }
   }
 }

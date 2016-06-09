@@ -3,6 +3,11 @@ include <x90.scad>
 include <frame.scad>
 use <x90batmale.scad>
 
+wi = 43;
+le = 35;
+di = 8;
+thi = 1;
+
 difference() {
 translate([5,-20,10])
 cube([40,40,47]);
@@ -54,3 +59,23 @@ translate([-40,-40,0])
 cube([80,80,17]);
 
 }
+
+translate([50,-wi/2-thi, 60]) {
+  difference() {
+    cube([di+thi*2,wi+thi*2,le+thi]);
+    translate([thi, thi, thi])
+    cube([di,wi,le]);
+  }
+  
+}
+
+
+translate([60,-wi/2-thi,40])
+rotate([0,59.7-90,0]) {
+  cube([di+thi*2,wi+thi*2,100]);
+}
+
+
+rotate([0,59.7,0]) {
+  cylinder($fn=100, 100,fr2,fr2);
+  }

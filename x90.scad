@@ -4,7 +4,7 @@ x90male_d = 22;
 x90male_h = 20;
 
 // wire radius
-wr = 4;
+wr = 4.4;
 
 // x90female
 x90female_w = 11.6;

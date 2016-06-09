@@ -58,6 +58,10 @@ translate([x/2-r,y/2-r]){  // We move to the first corner (x,y)
    }
 }
 
+module rrc(x,y,z,r) {
+   translate([x/2,y/2,z/2])
+   roundCornersCube(x,y,z,r);
+}
 
 
 

@@ -25,7 +25,8 @@ difference() {
 
 module capcap() {
   cylinder($fn=100,1.2,capr+thi,capr+thi);
-  cylinder($fn=100,3.7,capr,capr);
+  cylinder($fn=100,3.7,capr+0.05,capr+0.05);
 }
 
 capcap();
+//capholder();

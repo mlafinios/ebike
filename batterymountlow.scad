@@ -4,7 +4,7 @@ use <x90batmale.scad>
 include <battery.scad>
 
 module batmountlow() {
-	batz = 60;
+	batz = 80;
 
 	difference() {
 	translate([0,-bat_d/2-thi,0])
