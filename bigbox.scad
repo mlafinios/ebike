@@ -75,5 +75,35 @@ cylinder($fn=100,20,mwr,mwr);
 }
 }
 
+module bigboxcap2() {
+
+difference() {
+union() {
+  cuttedbox(wi+thi*2, de+thi*2, 1, fr2, 5);
+  translate([0,0,1])
+  cuttedbox(wi, de, 2, fr2+thi, 5);
+}
+
+mwr = 3.5;
+translate([-19,22,0]) {
+  // holes for motor wires
+  translate([7.2,0,-1])
+  cylinder($fn=100,15,mwr,mwr);
+
+  translate([19.0,0,-1])
+  cylinder($fn=100,15,mwr,mwr);
+
+  translate([31.7,0,-1])
+  cylinder($fn=100,15,mwr,mwr);
+
+  // hole for data cable
+  translate([11.4,4.7,-1])
+  cube([9.4,4.2,10]);
+}
+
+}
+}
+
+
 //bigbox();
-bigboxcap();
+bigboxcap2();
