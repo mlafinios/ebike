@@ -2,4 +2,4 @@ Get libraries
 
     mkdir -p ~/Documents/OpenSCAD/libraries
     cd ~/Documents/OpenSCAD/libraries
-    git clone git@github.com:dotscad/dotscad.git
+    git clone https://github.com/dotscad/dotscad.git

@@ -1,5 +1,5 @@
-bat_w = 51;
-bat_d = 44;
+bat_w = 50.6;
+bat_d = 43.6;
 
 // thickness
-thi = 2;
+thi = 1.6;

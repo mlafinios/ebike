@@ -19,7 +19,7 @@ module locker(r1, r2, t, h) {
   ringcut(r1, r1+t, h, 270, 180);
   translate([0,r1,0])
     cube([5,t,h]);
-  translate([5,r1+r2+t,0])
+  translate([4.99,r1+r2+t,0])
     ringcut(r2, r2+t, h, 290, -20);
   }
 }
