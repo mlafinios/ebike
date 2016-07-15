@@ -2,18 +2,15 @@ include <x90.scad>
 include <frame.scad>
 include <battery.scad>
 
-batz = 35;
-
-translate([0,-bat_d/2-thi,0])
-cube([bat_w+thi*2+fr1,bat_d+thi*2,0.3]);
+batz = 30;
 
 difference() {
 translate([0,-bat_d/2-thi,0])
-cube([bat_w+thi*2+fr1,bat_d+thi*2,batz+thi]);
+rcube(bat_w+thi*2+fr1,bat_d+thi*2,batz+thi,3);
 
 // battery
 translate([fr1+thi,-bat_d/2,thi])
-cube([bat_w,bat_d,batz+1]);
+rcube(bat_w,bat_d,batz+1,2);
 
 // fr1ame
 translate([0,0,-1])
@@ -27,16 +24,14 @@ cylinder($fn=100,50,wr,wr);
 translate([fr1+thi/2,bat_d/2-wr-thi,-1])
 cylinder($fn=100,50,wr,wr);
 
-// bolts
-translate([fr1+thi+wr*2,bat_d/2-thi-hr,-1])
-cylinder($fn=100,15,hr,hr);
-translate([fr1+thi+wr*2,-bat_d/2+thi+hr,-1])
-cylinder($fn=100,15,hr,hr);
-translate([fr1+bat_w-thi,-bat_d/2+thi+hr,-1])
-cylinder($fn=100,15,hr,hr);
-translate([fr1+bat_w-thi,bat_d/2-thi-hr,-1])
-cylinder($fn=100,15,hr,hr);
+translate([3,-fr1-3,0]) {
+  roundcutl(3.3, batz+thi);
 }
 
+translate([3,fr1+3,0]) {
+  roundcutr(3.3, batz+thi);
+}
+
+}
 
 

@@ -1,14 +1,8 @@
 use <ring.scad>
 include <frame.scad>
 include <battery.scad>
-use <roundCornersCube.scad>
 
 batz = 30;
-
-module rcube(w,d,h,r) {
-  translate([w/2, d/2, h/2])
-    roundCornersCube(w,d,h,r);
-}
 
 difference() {
   translate([0,-bat_d/2-thi,0])
