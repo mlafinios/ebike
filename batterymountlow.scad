@@ -4,15 +4,15 @@ use <x90batmale.scad>
 include <battery.scad>
 
 module batmountlow() {
-	batz = 80;
+	batz = 60;
 
 	difference() {
 	translate([0,-bat_d/2-thi,0])
-	cube([bat_w+thi*2+fr1,bat_d+thi*2,batz+thi]);
+	rcube(bat_w+thi*2+fr1,bat_d+thi*2,batz+thi, 3.5);
 
 	// battery
 	translate([fr1+thi,-bat_d/2,thi])
-	cube([bat_w,bat_d,batz+1]);
+	rcube(bat_w,bat_d,batz+1,2);
 
 	// frame
 	translate([0,0,-1])
@@ -41,7 +41,19 @@ module batmountlow() {
 	cylinder($fn=100,th+2,wr,wr);
 	translate([fr1+x90plate_w/2+hr*2,dbw/2,-1])
 	cylinder($fn=100,th+2,wr,wr);
+
+	translate([3,-fr1-3,0]) {
+	  roundcutl(3.3, batz+thi);
 	}
+
+	translate([3,fr1+3,0]) {
+	  roundcutr(3.3, batz+thi);
+	}
+
+  	}
+
+
+
 }
 
 batmountlow();

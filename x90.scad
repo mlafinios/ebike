@@ -12,7 +12,7 @@ x90female_d = 22;
 x90female_h = 9;
 
 // push bolt radius
-pbr = 1.4;
+pbr = 1.5;
 
 // hole radius
 hr = 1.2;

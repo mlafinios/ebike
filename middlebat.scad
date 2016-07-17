@@ -6,7 +6,7 @@ batz = 30;
 
 difference() {
 translate([0,-bat_d/2-thi,0])
-rcube(bat_w+thi*2+fr1,bat_d+thi*2,batz+thi,3);
+rcube(bat_w+thi*2+fr1,bat_d+thi*2,batz+thi,3.5);
 
 // battery
 translate([fr1+thi,-bat_d/2,thi])

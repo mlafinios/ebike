@@ -16,9 +16,9 @@ module batmale() {
 
     union() {
       // baseplate
-      rccube(x90plate_w, x90plate_d, th);
+      rccube(x90plate_w, x90plate_d, 3);
       // enclosure
-      rccube(x90male_w+th*2, x90male_d+th*2, x90male_h+th);
+      rccube(x90male_w+th*2, x90male_d+th, x90male_h+th);
     }
 
     // x90male
