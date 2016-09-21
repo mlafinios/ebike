@@ -2,7 +2,7 @@ include <x90.scad>
 include <frame.scad>
 include <battery.scad>
 
-batz = 30;
+batz = 50;
 
 difference() {
 translate([0,-bat_d/2-thi,0])
